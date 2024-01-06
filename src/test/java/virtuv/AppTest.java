@@ -1,7 +1,7 @@
 package virtuv;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
@@ -17,5 +17,12 @@ public class AppTest
     public void isPalindrom()
     {
         assertEquals( expected, app.isPalindrom(input1));
+    }
+
+    String input2 = "man";
+    @Test
+    public void isNotPalindrom()
+    {
+        assertFalse(app.isPalindrom(input2));
     }
 }
