@@ -1,5 +1,6 @@
 package virtuv;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -9,12 +10,12 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+    String input1 = "noon";
+    App app = new App();
+    boolean expected = true;
     @Test
-    public void shouldAnswerWithTrue()
+    public void isPalindrom()
     {
-        assertTrue( true );
+        assertEquals( expected, app.isPalindrom(input1));
     }
 }
