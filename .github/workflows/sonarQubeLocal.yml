@@ -1,0 +1,33 @@
+name: Test
+
+# workflow triggers
+on:
+  # manually
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        
+      # setup Java and cache Maven dependencies
+      - name: Setup Java
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+          cache: 'maven'
+
+      # run Maven build
+      - name: Maven Build
+        #run: ./mvn --batch-mode --update-snapshots verify
+        run: mvn clean verify sonar:sonar 
+              -Dsonar.projectKey=mavenTest \
+              -Dsonar.projectName='mavenTest' \
+              -Dsonar.host.url=http://localhost:9000 \
+              -Dsonar.token=sqp_2139028b49c023a8e02dd695b673f353e66eae38
