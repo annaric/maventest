@@ -35,11 +35,11 @@ jobs:
 
       # copy build results to staging area
       - name: Stage Build Results
-        run: mkdir staging-ubuntu-latest && cp **/target/*.jar staging-ubuntu-latest/
+        run: mkdir staging && cp **/target/** staging/
 
       # upload staged packages
       - name: Upload Build Results
         uses: actions/upload-artifact@v3.1.3
         with:
           name: Build Results
-          path: staging-*/
+          path: staging/
