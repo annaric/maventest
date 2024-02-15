@@ -48,7 +48,7 @@ jobs:
       
       # copy build results to staging area
       - name: Stage Build Results
-        run: mkdir staging && cp -r / staging/
+        run: mkdir staging && cp -r !(/staging) staging/
 
       # upload staged packages
       - name: Upload Build Results
