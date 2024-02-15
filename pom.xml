@@ -75,6 +75,7 @@
           <version>0.8.12-SNAPSHOT</version>
           <configuration>
             <outputDirectory>${project.build.directory}/jacoco-reports</outputDirectory>
+            <includeCurrentProject>True</includeCurrentProject>
           </configuration>
           <!--executions>
             <execution>
