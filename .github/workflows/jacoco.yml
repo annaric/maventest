@@ -49,8 +49,9 @@ jobs:
       
       # copy build results to staging area
       - name: Stage Build Results
+        run: mkdir staging && cp -r **/jacoco staging/
         #run: mkdir staging &&rsync -av --progress sourcefolder /staging --exclude staging
-        run: mkdir staging && cp -r `ls -A | grep -v "staging"` staging/
+        #run: mkdir staging && cp -r `ls -A | grep -v "staging"` staging/
 
       # upload staged packages
       - name: Upload Build Results
